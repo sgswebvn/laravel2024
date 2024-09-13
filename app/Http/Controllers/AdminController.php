@@ -13,6 +13,15 @@ class AdminController extends Controller
         $users = User::all();
         return view('admin.index', compact('users'));
     }
+    // public function updateStatus(Request $request, $id)
+    // {
+    //     $user = User::findOrFail($id);
+
+    //     $user->keyy = $request->input('keyy');
+    //     $user->save();
+
+    //     return redirect()->back()->with('success', 'Trạng thái người dùng đã được cập nhật.');
+    // }
     public function rec_user()
     {
         return view('admin.index', compact('users'));
@@ -32,5 +41,9 @@ class AdminController extends Controller
     public function rec_suppliers()
     {
         return view('admin.Supplier.index');
+    }
+    public function rec_productType()
+    {
+        return view('admin.ProductType.index');
     }
 }

@@ -19,24 +19,18 @@
 
             <!-- Giá sản phẩm -->
             <div>
-                <label for="price" class="block text-sm font-medium text-gray-700">Giá thực</label>
+                <label for="price" class="block text-sm font-medium text-gray-700">Giá sản phẩm</label>
                 <input type="number" name="price" id="price" step="10" required
                     class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
             </div>
 
-            <!-- Số lượng tồn kho -->
             <div>
-                <label for="quantity" class="block text-sm font-medium text-gray-700">Số lượng tồn kho</label>
-                <input type="number" name="quantity" id="quantity" required
+                <label for="quantity" class="block text-sm font-medium text-gray-700">Số lượng sản phẩm</label>
+                <input type="number" name="quantity" id="price" step="1" required
                     class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
             </div>
-            
-            <div>
-                <label for="price" class="block text-sm font-medium text-gray-700">Giá đã giảm</label>
-                <input type="number" name="price" id="price_dis" step="10" required
-                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-            </div>
-            <!-- Thương hiệu -->
+
+           
             <div>
                 <label for="brand_id" class="block text-sm font-medium text-gray-700">Thương hiệu</label>
                 <select name="brand_id" id="brand_id" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
@@ -63,9 +57,9 @@
                 <label for="type_id" class="block text-sm font-medium text-gray-700">Loại sản phẩm</label>
                 <select name="type_id" id="type_id" 
                     class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                    <option value="">Chọn loại sản phẩm</option>
+                    <option value="">Chọn kiểu sản phẩm</option>
                     @foreach($types as $type)
-                        <option value="{{ $type->id }}">{{ $type->name }}</option>
+                        <option value="{{ $type->id }}">{{ $type->type }}</option>
                     @endforeach
                 </select>
             </div> 
@@ -96,65 +90,7 @@
                 <input type="file" name="image" id="image"
                     class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
             </div>
-            <!-- Biến thể sản phẩm -->
-<div class="md:col-span-2">
-    <label class="block text-sm font-medium text-gray-700">Biến thể sản phẩm</label>
-    <div class="space-y-4">
-        <!-- Kích thước -->
-        <div>
-            <label class="block text-sm font-medium text-gray-700">Kích thước</label>
-            <div class="mt-1 space-y-2">
-                <label class="inline-flex items-center">
-                    <input type="checkbox" name="sizes[]" value="S" class="form-checkbox h-5 w-5 text-blue-600 transition duration-150 ease-in-out">
-                    <span class="ml-2 text-gray-700">S</span>
-                </label>
-                <label class="inline-flex items-center">
-                    <input type="checkbox" name="sizes[]" value="M" class="form-checkbox h-5 w-5 text-blue-600 transition duration-150 ease-in-out">
-                    <span class="ml-2 text-gray-700">M</span>
-                </label>
-                <label class="inline-flex items-center">
-                    <input type="checkbox" name="sizes[]" value="L" class="form-checkbox h-5 w-5 text-blue-600 transition duration-150 ease-in-out">
-                    <span class="ml-2 text-gray-700">L</span>
-                </label>
-                <label class="inline-flex items-center">
-                    <input type="checkbox" name="sizes[]" value="XL" class="form-checkbox h-5 w-5 text-blue-600 transition duration-150 ease-in-out">
-                    <span class="ml-2 text-gray-700">XL</span>
-                </label>
-            </div>
-        </div>
-
-        <!-- Màu sắc -->
-        <div>
-            <label class="block text-sm font-medium text-gray-700">Màu sắc</label>
-            <div class="mt-1 space-y-2">
-                <label class="inline-flex items-center">
-                    <input type="checkbox" name="colors[]" value="red" class="form-checkbox h-5 w-5 text-red-600 transition duration-150 ease-in-out">
-                    <span class="ml-2 text-gray-700">Đỏ</span>
-                </label>
-                <label class="inline-flex items-center">
-                    <input type="checkbox" name="colors[]" value="blue" class="form-checkbox h-5 w-5 text-blue-600 transition duration-150 ease-in-out">
-                    <span class="ml-2 text-gray-700">Xanh</span>
-                </label>
-                <label class="inline-flex items-center">
-                    <input type="checkbox" name="colors[]" value="green" class="form-checkbox h-5 w-5 text-green-600 transition duration-150 ease-in-out">
-                    <span class="ml-2 text-gray-700">Xanh lá</span>
-                </label>
-                <label class="inline-flex items-center">
-                    <input type="checkbox" name="colors[]" value="black" class="form-checkbox h-5 w-5 text-black transition duration-150 ease-in-out">
-                    <span class="ml-2 text-gray-700">Đen</span>
-                </label>
-            </div>
-        </div>
-
-        <!-- Hình ảnh biến thể -->
-        <div>
-            <label for="variant_images" class="block text-sm font-medium text-gray-700">Hình ảnh biến thể</label>
-            <input type="file" name="variant_images[]" id="variant_images" multiple
-                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-            <p class="mt-1 text-sm text-gray-500">Chọn nhiều hình ảnh nếu cần.</p>
-        </div>
-    </div>
-</div>
+            
             
 
         </div>
@@ -165,5 +101,15 @@
             <button type="reset" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition">Hủy bỏ</button>
         </div>
     </form>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 </div>
 @endsection

@@ -9,5 +9,9 @@ class ProductType extends Model
 {
     use HasFactory;
     protected $table = 'product_types';
-    protected $fillable = ['type'];
+    protected $fillable = ['type', 'description', 'date_create'];
+
+    protected $casts  = [
+        'date_create' => 'datetime',
+    ];
 }

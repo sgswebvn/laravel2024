@@ -24,11 +24,18 @@
                     <td class="px-6 py-4 border-b border-gray-200">{{ $user->created_at->format('d / m / Y') }}</td>
                     <td class="px-6 py-4 border-b border-gray-200">{{ $user->status }}</td>
                     <td class="px-6 py-4 border-b border-gray-200">
-                        <select class="text-red-500 focus:outline-none">
-                            <option value="show" {{ $user->status == 'unlock' ? 'selected' : '' }}>Mở</option>
-                            <option value="hidden" {{ $user->status == 'lock' ? 'selected' : '' }}>Khóa</option>
-                        </select>
+                        {{-- <form method="POST" action="{{ route('users.updateStatus', $user->id) }}"> --}}
+                            @csrf
+                            @method('PATCH')
+                            <select class="text-red-500 focus:outline-none" name="keyy" onchange="this.form.submit()">
+                                <option value="0" {{ $user->keyy == 'show' ? 'selected' : '' }}>Mở</option>
+                                <option value="1" {{ $user->keyy == 'hidden' ? 'selected' : '' }}>Khóa</option>
+
+
+                            </select>
+                        </form>
                     </td>
+                    
                 </tr>
                 @endforeach
             </tbody>

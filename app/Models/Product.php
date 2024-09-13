@@ -16,7 +16,7 @@ class Product extends Model
         'quantity',
         'brand_id',
         'image',
-        'status',
+        'status_id',
         'type_id',
         'discount_id',
         'supplier_id',
@@ -35,10 +35,6 @@ class Product extends Model
         return $this->belongsTo(Brand::class);
     }
 
-    public function status()
-    {
-        return $this->belongsTo(Status::class);
-    }
 
     public function type()
     {

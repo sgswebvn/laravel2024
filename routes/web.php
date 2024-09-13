@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductTypeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RevenueController;
 use App\Http\Controllers\SupplierController;
@@ -30,7 +31,7 @@ Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin');
 
     Route::get('/users', [AdminController::class, 'rec_user'])->name('users');
-    Route::resource('users', CustomerController::class);
+    Route::resource('users', AdminController::class);
 
     Route::get('/categories', [AdminController::class, 'rec_category'])->name('categories');
     Route::resource('categories', CategoryController::class);
@@ -50,6 +51,25 @@ Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
 
     Route::get('/suppliers', [SupplierController::class, 'rec_suppliers'])->name('suppliers');
     Route::resource('suppliers', SupplierController::class);
+
+    Route::get('/productTypes', [ProductTypeController::class, 'rec_productType'])->name('productTypes');
+    Route::resource('productTypes', ProductTypeController::class);
 });
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+
+    return redirect('/home');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
 
 require __DIR__ . '/auth.php';

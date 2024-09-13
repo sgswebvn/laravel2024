@@ -40,7 +40,7 @@
                     <td class="px-6 py-4 border-b border-gray-200">{{ $product->name }}</td>
                     <td class="px-6 py-4 border-b border-gray-200">
                         @if($product->image)
-                            <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="w-16 h-16 object-cover">
+                            <img src="{{ asset('/storage/' . $product->image) }}" alt="{{ $product->name }}" class="w-16 h-16 object-cover">
                         @else
                             <span>Chưa có hình ảnh</span>
                         @endif

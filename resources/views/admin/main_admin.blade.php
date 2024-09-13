@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   @vite('resources/css/app.css')
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>@yield('title')</title>
 </head>
 <body class="bg-gray-100">
@@ -18,6 +19,7 @@
             <div class="flex space-x-4">
               <a href="{{ route('admin.users.index') }}" class="text-white hover:text-gray-200">Trang chủ</a>
               <a href="#" class="text-white hover:text-gray-200">Người dùng</a>
+              <a href="{{ route('admin.productTypes.index') }}" class="text-white hover:text-gray-200">Kiểu sản phẩm</a>
               <a href="#" class="text-white hover:text-gray-200">Cài đặt</a>
               <form action="{{ route('logout') }}" method="POST" class="inline">
                 @csrf
