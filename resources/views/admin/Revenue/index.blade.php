@@ -50,7 +50,8 @@
                     <td class="px-6 py-4 border-b">3</td>
                     <td class="px-6 py-4 border-b">Sản phẩm C</td>
                     <td class="px-6 py-4 border-b">50</td>
-                    <td class="px-6 py-4 border-b">5,000,000 VNĐ</td>
+                    <td class="px-6 py-4 border-b">100,000</td>
+                    
                     <td class="px-6 py-4 border-b">03/01/2024</td>
                 </tr>
             </tbody>
@@ -60,12 +61,11 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-    // Dữ liệu cho biểu đồ
     const data = {
         labels: ['01/01', '02/01', '03/01'],
         datasets: [{
             label: 'Doanh thu (VNĐ)',
-            data: [10000000, 7500000, 5000000],
+            data: [giatri1, giatri1, giatri1],
             backgroundColor: 'rgba(54, 162, 235, 0.6)',
             borderColor: 'rgba(54, 162, 235, 1)',
             borderWidth: 1

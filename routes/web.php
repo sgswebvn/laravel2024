@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -71,5 +71,12 @@ Route::post('/email/verification-notification', function (Request $request) {
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
+
+
+// --- Client -------------------------------- //
+
+Route::get('/home', function () {
+    return view('home');
+});
 
 require __DIR__ . '/auth.php';
